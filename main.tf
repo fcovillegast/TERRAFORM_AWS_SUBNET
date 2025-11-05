@@ -8,7 +8,7 @@ resource "aws_subnet" "example" {
   # --- Aplicación de Tags Iterativos ---
   tags = {
     # 1. Tag requerido (ej. Name)
-    Name = "${var.name_prefix}-${each.key}"
+    Name = "${var.name_prefix}-${each.value.cidr_block}"
 
     # 2. Tag basado en la configuración del mapa (each.value.type)
     Type = each.value.type
